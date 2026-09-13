@@ -1,0 +1,6 @@
+{
+  "name": "ANISA AI",
+  "description": "Production-quality real-time voice-to-voice personal AI assistant with futuristic neon UI, Gemini intelligence, and secure system tools.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
