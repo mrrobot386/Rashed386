@@ -25,12 +25,11 @@ def log_tool_invocation(tool: str, action: str, success: bool, metadata: Optiona
 
     safe_metadata = {}
     if metadata:
-        # Filter out sensitive fields
         for k, v in metadata.items():
             if k.lower() in ["password", "key", "token", "secret", "audio", "auth", "image"]:
                 safe_metadata[k] = "[REDACTED]"
             else:
-                safe_metadata[k] = str(v)[:100]  # truncate length
+                safe_metadata[k] = str(v)[:100]
 
     event = {
         "timestamp": time.time(),
@@ -40,3 +39,7 @@ def log_tool_invocation(tool: str, action: str, success: bool, metadata: Optiona
         "metadata": safe_metadata
     }
     logger.info("AUDIT_EVENT: %s", json.dumps(event))
+
+def log_audit_event(tool: str, success: bool, metadata: Optional[Dict[str, Any]] = None):
+    action = (metadata or {}).get("action", "default")
+    log_tool_invocation(tool, action, success, metadata=metadata)

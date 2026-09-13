@@ -181,6 +181,10 @@ export class LiveSession {
     this.setState('listening');
   }
 
+  stop(): void {
+    this.disconnect();
+  }
+
   disconnect(): void {
     this.cleanup();
     this.setState('disconnected');

@@ -34,7 +34,7 @@ RESTRICTED_PATTERNS = [
 ]
 
 SAFE_URL_REGEX = re.compile(
-    r"^https:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?$",
+    r"^(https:\/\/(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|http:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?)(?:\/[^\s]*)?$",
     re.IGNORECASE
 )
 
